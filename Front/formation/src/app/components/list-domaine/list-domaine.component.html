@@ -1,0 +1,46 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="libelle"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchLibelle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Domaines List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let domaine of domaines; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveDomaine(domaine, i)"
+        >
+          {{ domaine.libelle }}
+        </li>
+      </ul>
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDomaines()">
+        Remove All
+      </button>
+      <button class="m-3 btn btn-sm btn-success" (click)="addDomaines()">
+        Add New
+      </button>
+    </div>
+    <div class="col-md-6">
+      <app-details-domaine
+        [viewMode]="true"
+        [currentDomaine]="currentDomaine"
+      ></app-details-domaine>
+    </div>
+  </div>

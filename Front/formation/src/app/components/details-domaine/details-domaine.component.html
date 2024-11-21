@@ -1,0 +1,50 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentDomaine.id">
+      <h4>Domaine</h4>
+      <div>
+        <label><strong>Libelle:</strong></label> {{ currentDomaine.libelle }}
+      </div>
+      <a
+        class="badge badge-warning"
+        routerLink="/domaines/{{ currentDomaine.id }}"
+      >
+        Edit
+      </a>
+    </div>
+    <div *ngIf="!currentDomaine">
+      <br />
+      <p>Please click on a Domaine...</p>
+    </div>
+  </div>
+  <ng-template #editable>
+    <div *ngIf="currentDomaine.id" class="edit-form">
+      <h4>Domaine</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentDomaine.libelle"
+            name="title"
+          />
+        </div>
+      </form>
+      <button class="badge badge-danger mr-2" (click)="deleteDomaine()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateDomaine()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentDomaine.id">
+      <br />
+      <p>Cannot access this Domaine...</p>
+    </div>
+  </ng-template>

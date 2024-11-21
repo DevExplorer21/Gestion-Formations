@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Ajouter Formation Formulaire</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formationForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Titre</mat-label>
+        <input formControlName="titre" matInput placeholder="Titre de formation">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Année</mat-label>
+        <input formControlName="annee" matInput placeholder="Année de formation">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Durée</mat-label>
+        <input formControlName="duree" matInput placeholder="Durée en nombre d'heure">
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Budget</mat-label>
+        <input formControlName="budget" matInput placeholder="Budget de formation">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input formControlName="type" matInput placeholder="Choisir : Nationale/Internationale">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Session</mat-label>
+        <input formControlName="nb_session" matInput placeholder="Nombre de session">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner un domaine</mat-label>
+        <mat-select formControlName="domain" >
+          <mat-option *ngFor="let domain of domaines" [value]="domain.id">
+            {{domain.libelle}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+</form>
+</div>
+<div mat-dialog-action [align]="'End'">
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addFormation()">{{actionsBtn}}</button>
+    
+</div>

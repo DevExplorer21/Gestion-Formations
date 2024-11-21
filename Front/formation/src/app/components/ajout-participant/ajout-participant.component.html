@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Ajouter participant Formulaire</h1>
+<div mat-dialog-content>
+    <form [formGroup]="participantForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input formControlName="nom" matInput placeholder="Nom du participant">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Prenom</mat-label>
+        <input formControlName="prenom" matInput placeholder="Prenom du participant">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Email du participant">
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Telephone</mat-label>
+        <input formControlName="telephone" matInput placeholder="Télephone du participant">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input formControlName="type" matInput placeholder="Choisir : National/International">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner une pays</mat-label>
+        <mat-select formControlName="pays" >
+          <mat-option *ngFor="let pays of payss" [value]="pays.id">
+            {{pays.nom}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner un profil</mat-label>
+        <mat-select formControlName="profil" >
+          <mat-option *ngFor="let profil of profils" [value]="profil.id">
+            {{profil.libelle}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+</form>
+</div>
+<div mat-dialog-action [align]="'End'">
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addParticipant()">{{actionsBtn}}</button>
+    
+</div>

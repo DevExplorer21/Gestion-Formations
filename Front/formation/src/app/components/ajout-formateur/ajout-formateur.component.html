@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Ajouter Formateur Formulaire</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formateurForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input formControlName="nom" matInput placeholder="Nom du formateur">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Prenom</mat-label>
+        <input formControlName="prenom" matInput placeholder="Prenom du formateur">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Email du formateur">
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Telephone</mat-label>
+        <input formControlName="telephone" matInput placeholder="Télephone du formateur">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input formControlName="type" matInput placeholder="Choisir : Interne/Externe">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner un organisme</mat-label>
+        <mat-select formControlName="organisme" >
+          <mat-option *ngFor="let organisme of organismes" [value]="organisme.id">
+            {{organisme.libelle}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+</form>
+</div>
+<div mat-dialog-action [align]="'End'">
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addFormateur()">{{actionsBtn}}</button>
+</div>

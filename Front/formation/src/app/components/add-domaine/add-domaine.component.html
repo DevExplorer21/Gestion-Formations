@@ -1,0 +1,22 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Libelle</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="domaine.libelle"
+            name="title"
+          />
+        </div>
+        <button (click)="saveDomaine()" class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>Domaine was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newDomaine()">Add</button>
+      </div>
+    </div>
+  </div>

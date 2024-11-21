@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>Ajouter Session Formulaire</h1>
+<div mat-dialog-content>
+    <form [formGroup]="sessionForm">
+   
+   <!--  <mat-form-field appearance="outline">
+        <mat-label>Date Début</mat-label>
+        <input formControlName="date_debut" matInput placeholder="Date Début de Session">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Date Fin</mat-label>
+        <input formControlName="date_fin" matInput placeholder="Date Fin de Session">
+    </mat-form-field>
+
+     
+    <mat-form-field appearance="outline">
+        <mat-label>Date Début</mat-label>
+        <mat-label> Choisir une date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+-->
+      <mat-form-field appearance="outline">
+        <mat-label>Date Début</mat-label>
+        <input formControlName="date_debut" type="date" matInput placeholder="Date Début de Session">
+    </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Date Fin</mat-label>
+        <input formControlName="date_fin" type="date" matInput placeholder="Date Fin de Session">
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Lieu</mat-label>
+        <input formControlName="lieu" matInput placeholder="Lieu de Session">
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Participants</mat-label>
+        <input formControlName="nbr_participants" type="number" matInput placeholder="Nombre Participants">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner un formateur</mat-label>
+        <mat-select formControlName="formateur" >
+          <mat-option *ngFor="let formateur of formateurs" [value]="formateur.id">
+            {{formateur.nom}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner un organisme</mat-label>
+        <mat-select formControlName="organisme" >
+          <mat-option *ngFor="let organisme of organismes" [value]="organisme.id">
+            {{organisme.libelle}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Sélectioner une formation</mat-label>
+        <mat-select formControlName="formations" >
+          <mat-option *ngFor="let formation of formations" [value]="formation.id">
+            {{formation.titre}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+</form>
+</div>
+<div mat-dialog-action [align]="'End'">
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addSession()">{{actionsBtn}}</button>
+    
+</div>
